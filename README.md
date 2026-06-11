@@ -20,7 +20,7 @@ read can be acted on immediately.
 - **`main`** — implementation (this branch).
 - **[`docs`](https://github.com/shaeantoine/h4/tree/docs)** — proposal,
   presentation, and supporting documentation. Also serves the demo
-  presentation via GitHub Pages: <https://shaeantoine.github.io/h4/>.
+  presentation via GitHub Pages: <https://shaeantoine.github.io/H4/>.
 
 ## Capability signals
 
