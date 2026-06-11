@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minerva — Capability, made legible</title>
+<title>H4 — Capability, made legible</title>
 <style>
   /* ─────────────────────────────────────────────────────────
      Tokens
@@ -456,6 +456,74 @@
   .section.visible .signal-row .signal-chip:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 1.15s; }
 
   /* ─────────────────────────────────────────────────────────
+     Traction — validator cards
+     ───────────────────────────────────────────────────────── */
+  .validator-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 56px;
+  }
+  .validator-card {
+    padding: 26px 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease;
+    position: relative;
+    min-height: 168px;
+  }
+  .validator-card:hover {
+    border-color: rgba(48,209,88,0.45);
+    transform: translateY(-3px);
+    background: rgba(48,209,88,0.04);
+  }
+  .validator-card::before {
+    content: "";
+    position: absolute;
+    top: 16px; left: 18px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--c-green);
+    box-shadow: 0 0 10px rgba(48,209,88,0.7);
+  }
+  .validator-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-strong);
+    letter-spacing: -0.01em;
+    margin-top: 14px;
+    line-height: 1.25;
+  }
+  .validator-tag {
+    font-size: 11px;
+    color: var(--c-blue-2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .validator-detail {
+    font-size: 12px;
+    color: var(--text-mute-2);
+    line-height: 1.45;
+    margin-top: 8px;
+  }
+  .validator-row .validator-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease, border-color 0.4s ease, background 0.4s ease;
+  }
+  .section.visible .validator-row .validator-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
+  .section.visible .validator-row .validator-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.65s; }
+  .section.visible .validator-row .validator-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+  .section.visible .validator-row .validator-card:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.95s; }
+  .section.visible .validator-row .validator-card:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 1.1s; }
+
+  /* ─────────────────────────────────────────────────────────
      Ambient orbs
      ───────────────────────────────────────────────────────── */
   .ambient {
@@ -602,6 +670,7 @@
     .section { padding: 64px 28px; }
     .cover-meta { left: 28px; right: 28px; bottom: 28px; flex-direction: column; gap: 6px; }
     .institution-row, .signal-row { grid-template-columns: repeat(2, 1fr); }
+    .validator-row { grid-template-columns: repeat(2, 1fr); }
     .paradox-layout, .diptych { grid-template-columns: 1fr; }
     .nav { right: 12px; gap: 10px; }
     .notes-overlay { width: calc(100vw - 40px); right: 20px; }
@@ -664,7 +733,7 @@
         <circle cx="14" cy="50" r="3.2" fill="url(#iconGrad)" opacity="0.9"/>
       </svg>
     </div>
-    <h1 class="headline-hero gradient-text">Minerva</h1>
+    <h1 class="headline-hero gradient-text">H4</h1>
     <p class="subhead">Capability, made legible.</p>
   </div>
   <div class="cover-meta">
@@ -897,7 +966,80 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
-     6. VISION CLOSE  (2:30 – 3:00)
+     6. TRACTION  (2:30 – 3:00)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section section--gray" data-section data-label="Traction" data-notes="traction">
+  <div class="section-content stagger">
+    <h2 class="headline-large">The thesis is landing.</h2>
+    <div class="slide-lines">
+      <p class="slide-line">No users. No revenue. <span class="em">Not yet.</span></p>
+      <p class="slide-line">But the people who'd know if this is real are <span class="em">already engaged</span>.</p>
+    </div>
+
+    <div class="validator-row">
+      <div class="validator-card">
+        <div class="validator-name">Sendhil Mullainathan</div>
+        <div class="validator-tag">MIT</div>
+        <div class="validator-detail">Behavioral economics &amp; machine learning</div>
+      </div>
+      <div class="validator-card">
+        <div class="validator-name">Michael Smith</div>
+        <div class="validator-tag">Carnegie Mellon</div>
+        <div class="validator-detail">Information systems &amp; digital markets</div>
+      </div>
+      <div class="validator-card">
+        <div class="validator-name">CHRO, IMC Trading</div>
+        <div class="validator-tag">Industry</div>
+        <div class="validator-detail">Hiring quant talent where capability matters more than the credential</div>
+      </div>
+      <div class="validator-card">
+        <div class="validator-name">Lecturer, USYD</div>
+        <div class="validator-tag">Higher Ed</div>
+        <div class="validator-detail">Inside the credentialing institution</div>
+      </div>
+      <div class="validator-card">
+        <div class="validator-name">Forbes 30 Under 30 Founder</div>
+        <div class="validator-tag">EdTech</div>
+        <div class="validator-detail">Operator perspective on the education market</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     7. NEXT STEPS  (3:00 – 3:45)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section section--black killer" data-section data-label="Next Steps" data-notes="next-steps">
+  <div class="section-content stagger">
+    <h2 class="killer-headline">The hard part isn't building it.</h2>
+    <h2 class="killer-punch gradient-accent">It's earning the right to be trusted.</h2>
+    <div class="slide-lines">
+      <p class="slide-line">Almost anyone can ship a study tool. <span class="em">Almost no one is trusted to judge.</span></p>
+      <p class="slide-line">The next <span class="em">3–6 months</span> treat trust as the design constraint.</p>
+    </div>
+    <div class="signal-row">
+      <div class="signal-chip">
+        <div class="signal-chip-name">Co-publish</div>
+        <div class="signal-chip-desc">working paper with named academics</div>
+      </div>
+      <div class="signal-chip">
+        <div class="signal-chip-name">Pilot in public</div>
+        <div class="signal-chip-desc">one institution, one cohort, open results</div>
+      </div>
+      <div class="signal-chip">
+        <div class="signal-chip-name">Open the method</div>
+        <div class="signal-chip-desc">capability framework, scrutable</div>
+      </div>
+      <div class="signal-chip">
+        <div class="signal-chip-name">Independent rater</div>
+        <div class="signal-chip-desc">third party verifies our signals</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     8. VISION CLOSE  (3:45 – 4:15)
      ═══════════════════════════════════════════════════════════ -->
 <section class="section section--black closing" data-section data-label="Close">
   <div class="section-content stagger">
@@ -957,6 +1099,28 @@
         'But the trajectories are different. One reaches the answer through <span class="em-note">analogy and rapid abstraction</span>. The other through <span class="em-note">methodical repetition</span>.',
         '<span class="em-note">Traditional education says these students are identical. Our system doesn\'t.</span>',
         'That is the magical moment.'
+      ]
+    },
+    traction: {
+      title: 'Traction — the right rooms',
+      timing: '2:30 — 3:00',
+      notes: [
+        'Be honest up front: <span class="em-note">no users yet. No revenue yet.</span> That isn\'t the proof point at this stage.',
+        'The proof point is who is already in the conversation.',
+        '<span class="em-note">Sendhil Mullainathan at MIT</span> and <span class="em-note">Michael Smith at Carnegie Mellon</span> — two of the people thinking hardest about how AI changes capability assessment.',
+        'On the demand side: the <span class="em-note">CHRO of IMC Trading</span>, where capability matters more than credentials. A <span class="em-note">USYD lecturer</span>, inside the credentialing institution. A <span class="em-note">Forbes 30 Under 30 education founder</span>.',
+        'The thesis lands across academics, employers, and operators — three rooms that rarely agree on anything.'
+      ]
+    },
+    'next-steps': {
+      title: 'Next steps — trust as architecture',
+      timing: '3:00 — 3:45',
+      notes: [
+        'Here\'s the part most pitches get wrong. They treat trust as marketing — something you bolt on once the product works.',
+        '<span class="em-note">The core problem here isn\'t technical.</span> Almost anyone can build a platform that helps someone study. The hard, valuable thing is being trusted to judge.',
+        'So the next 3–6 months put trust at the center of development, not the perimeter.',
+        'Four moves. <span class="em-note">Co-publish</span> a working paper with the academics already engaged — credentialed authorship is social proof. <span class="em-note">Pilot in public</span> with one institution, one cohort, open results — converts conversation into evidence. <span class="em-note">Open the method</span> — universities are trusted because their methods are scrutinized; we have to invite the same scrutiny. <span class="em-note">Bring in an independent rater</span> — a third party reproducing our signals beats any internal benchmark.',
+        'Universities became powerful as audited capability filters. We have to be auditable too.'
       ]
     }
   };
