@@ -28,3 +28,6 @@ yarn-error.log*
 .claude/
 AGENTS.md
 CLAUDE.md
+
+# Dataset information 
+/gallup_data

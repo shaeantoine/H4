@@ -524,6 +524,45 @@
   .section.visible .validator-row .validator-card:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 1.1s; }
 
   /* ─────────────────────────────────────────────────────────
+     Appendix — trust chart
+     ───────────────────────────────────────────────────────── */
+  .appendix-eyebrow {
+    font-size: 11px;
+    color: var(--c-gold);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .trust-chart {
+    margin-top: 40px;
+    width: 100%;
+  }
+  .trust-chart svg { width: 100%; height: auto; overflow: visible; display: block; }
+  .trust-line {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+  }
+  .section.visible .trust-line { animation: drawLine 2.6s cubic-bezier(.16,1,.3,1) forwards 0.5s; }
+  .section.visible .trust-line.delayed { animation-delay: 1.1s; }
+  .trust-end {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .section.visible .trust-end { opacity: 1; transition-delay: 2.8s; }
+  .section.visible .trust-end.delayed { transition-delay: 3.0s; }
+  .chart-source {
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--text-mute);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+
+  /* ─────────────────────────────────────────────────────────
      Ambient orbs
      ───────────────────────────────────────────────────────── */
   .ambient {
@@ -1053,6 +1092,82 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
+     9. APPENDIX — TRUST CROSSOVER
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section section--gray" data-section data-label="Appendix · Trust" data-notes="appendix-trust">
+  <div class="section-content stagger">
+    <div class="appendix-eyebrow">Appendix</div>
+    <h2 class="headline-large">Less trusted than the police.</h2>
+    <div class="slide-lines">
+      <p class="slide-line">In <span class="em">2015</span>, Americans trusted higher education <span class="em">more</span> than the police. <span style="color: var(--text-mute);">(57% vs 52%)</span></p>
+      <p class="slide-line">By <span class="em">2025</span>, that order has flipped. <span style="color: var(--text-mute);">(42% vs 45%)</span></p>
+    </div>
+
+    <div class="trust-chart">
+      <svg viewBox="0 0 820 320" fill="none" aria-label="Public confidence in police vs. higher education, 2000-2025">
+        <defs>
+          <linearGradient id="policeGrad" x1="0" y1="0" x2="820" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#5ac8fa" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="#2997ff"/>
+          </linearGradient>
+          <linearGradient id="heGrad" x1="0" y1="0" x2="820" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ff9f0a" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="#ff375f"/>
+          </linearGradient>
+        </defs>
+
+        <line x1="60" y1="62.5"  x2="760" y2="62.5"  stroke="#38383a" stroke-width="0.5" stroke-dasharray="2,3"/>
+        <line x1="60" y1="127.5" x2="760" y2="127.5" stroke="#38383a" stroke-width="0.5" stroke-dasharray="2,3"/>
+        <line x1="60" y1="192.5" x2="760" y2="192.5" stroke="#38383a" stroke-width="0.5" stroke-dasharray="2,3"/>
+        <line x1="60" y1="257.5" x2="760" y2="257.5" stroke="#38383a" stroke-width="0.5" stroke-dasharray="2,3"/>
+
+        <text x="50" y="66"  fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="end">60%</text>
+        <text x="50" y="131" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="end">50%</text>
+        <text x="50" y="196" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="end">40%</text>
+        <text x="50" y="261" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="end">30%</text>
+
+        <line x1="60" y1="290" x2="760" y2="290" stroke="#38383a" stroke-width="0.8"/>
+        <text x="60"  y="308" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="middle">2000</text>
+        <text x="200" y="308" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="middle">2005</text>
+        <text x="340" y="308" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="middle">2010</text>
+        <text x="480" y="308" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="middle">2015</text>
+        <text x="620" y="308" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="middle">2020</text>
+        <text x="760" y="308" fill="#6e6e73" font-size="10" font-family="-apple-system, sans-serif" text-anchor="middle">2025</text>
+
+        <path class="trust-line" pathLength="100"
+              d="M 60 101.5 L 88 82 L 116 69 L 144 56 L 172 36.5 L 200 43 L 228 75.5 L 256 101.5 L 284 75.5 L 312 69 L 340 69 L 368 88.5 L 396 88.5 L 424 82 L 452 108 L 480 114.5 L 508 88.5 L 536 82 L 564 101.5 L 592 108 L 620 140.5 L 648 121 L 676 160 L 704 173 L 732 121 L 760 160"
+              stroke="url(#policeGrad)" stroke-width="2.2"/>
+
+        <path class="trust-line delayed" pathLength="100"
+              d="M 480 82 L 564 140.5 L 704 218.5 L 732 218.5 L 760 179.5"
+              stroke="url(#heGrad)" stroke-width="2.6"/>
+
+        <g class="trust-end delayed">
+          <circle cx="480" cy="82"    r="3.2" fill="#ff9f0a" opacity="0.7"/>
+          <circle cx="564" cy="140.5" r="3.2" fill="#ff7d3a" opacity="0.85"/>
+          <circle cx="704" cy="218.5" r="3.2" fill="#ff5a4d" opacity="0.95"/>
+          <circle cx="732" cy="218.5" r="3.2" fill="#ff4855"/>
+          <circle cx="760" cy="179.5" r="4.2" fill="#ff375f"/>
+        </g>
+
+        <g class="trust-end">
+          <circle cx="760" cy="160" r="4.2" fill="#2997ff"/>
+        </g>
+
+        <g class="trust-end">
+          <text x="770" y="156" fill="#5ac8fa" font-size="12" font-family="-apple-system, sans-serif" font-weight="600">Police · 45%</text>
+        </g>
+        <g class="trust-end delayed">
+          <text x="770" y="184" fill="#ff375f" font-size="12" font-family="-apple-system, sans-serif" font-weight="700">Higher Ed · 42%</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="chart-source">Source: Gallup, "Confidence in Institutions" (annual). Share of U.S. adults expressing "a great deal" or "quite a lot" of confidence. Higher-education item begins 2015; figures shown for 2015, 2018, 2023, 2024, 2025.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
      ═══════════════════════════════════════════════════════════ -->
 <script>
@@ -1121,6 +1236,17 @@
         'So the next 3–6 months put trust at the center of development, not the perimeter.',
         'Four moves. <span class="em-note">Co-publish</span> a working paper with the academics already engaged — credentialed authorship is social proof. <span class="em-note">Pilot in public</span> with one institution, one cohort, open results — converts conversation into evidence. <span class="em-note">Open the method</span> — universities are trusted because their methods are scrutinized; we have to invite the same scrutiny. <span class="em-note">Bring in an independent rater</span> — a third party reproducing our signals beats any internal benchmark.',
         'Universities became powerful as audited capability filters. We have to be auditable too.'
+      ]
+    },
+    'appendix-trust': {
+      title: 'Appendix — the trust crossover',
+      timing: 'Q&A backup',
+      notes: [
+        'If anyone questions the "trust is the bottleneck" framing, this is the slide.',
+        'Gallup has tracked confidence in U.S. institutions every year since 1973. They added higher education in 2015.',
+        'In <span class="em-note">2015</span>, 57% of Americans said they had a great deal or quite a lot of confidence in higher education. Police was 52%. Higher ed was the more trusted institution.',
+        'Ten years later, in <span class="em-note">2025</span>: higher education is at 42%, police at 45%. <span class="em-note">The order flipped.</span>',
+        'The point isn\'t that police trust is high — it isn\'t. The point is that higher ed lost a fifteen-point lead in a decade. That collapse is the opportunity. Trust isn\'t locked up by incumbents anymore — it\'s in motion.'
       ]
     }
   };
